@@ -7,9 +7,9 @@
     "dist/**"
   ],
   "scripts": {
-    "test": "rm -rf coverage && jest --coverage",
+    "test": "shx rm -rf coverage && jest --coverage",
     "lint": "eslint 'src/**/*'",
-    "build": "rm -rf dist && babel src --out-dir dist && cp ./src/index.d.ts ./dist",
+    "build": "shx rm -rf dist && babel src --out-dir dist && shx cp ./src/index.d.ts ./dist",
     "prepare": "yarn build",
     "prepush": "yarn test && yarn build"
   },
@@ -44,6 +44,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^26.0.1",
     "eslint": "^7.3.1",
-    "jest": "^26.0.0"
+    "jest": "^26.0.0",
+    "shx": "^0.3.3"
   }
 }

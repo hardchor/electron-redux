@@ -10,7 +10,7 @@ export default function replayActionMain(store) {
    */
   global.getReduxState = () => JSON.stringify(store.getState());
 
-  ipcMain.on('redux-action', (event, payload) => {
-    store.dispatch(payload);
+  ipcMain.handle('redux-action', async (event, payload) => {
+    await store.dispatch(payload);
   });
 }
